@@ -17,7 +17,7 @@ body:
       placeholder: ex. email@example.com
     validations:
       required: false
-- type: input
+  - type: input
     id: prevalence
     attributes:
       label: Bug prevalence (optional)
@@ -103,7 +103,7 @@ body:
     id: logs
     attributes:
       label: Can you copy and paste the list of loaded modules? 
-      description: To obtain a list of loaded modules simply open a TaskWindow and type `*modules` and then `*rom.` and copy an dpaste here all the output
+      description: To obtain a list of loaded modules simply open a TaskWindow and type `*modules` and then `*rom.` and copy and paste here all the output
       render: shell
   - type: checkboxes
     id: terms
