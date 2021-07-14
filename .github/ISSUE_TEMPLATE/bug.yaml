@@ -3,7 +3,7 @@ description: File a bug report
 title: "[Bug]: "
 labels: [bug, triage]
 assignees:
-  - @RISC-OS-Community/dev-team
+  - dev-team
 body:
   - type: markdown
     attributes:
