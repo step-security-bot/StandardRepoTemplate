@@ -3,7 +3,7 @@ description: File a bug report
 title: "[Bug]: "
 labels: [bug, triage]
 assignees:
-  - octocat
+  - @RISC-OS-Community/dev-team
 body:
   - type: markdown
     attributes:
@@ -12,9 +12,17 @@ body:
   - type: input
     id: contact
     attributes:
-      label: Contact Details
+      label: Contact Details (optional)
       description: How can we get in touch with you if we need more info?
       placeholder: ex. email@example.com
+    validations:
+      required: false
+- type: input
+    id: prevalence
+    attributes:
+      label: Bug prevalence (optional)
+      description: "How often do you or others encounter this bug?"
+      placeholder: "Whenever I visit the user account page (1-2 times a week)"
     validations:
       required: false
   - type: textarea
@@ -27,6 +35,19 @@ body:
     validations:
       required: true
   - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: "How do you trigger this bug? Please walk us through it step by step."
+      value: |
+        1.
+        2.
+        3.
+        ...
+    render: bash
+  validations:
+    required: true
+  - type: input
     id: version
     attributes:
       label: Version
@@ -70,7 +91,7 @@ body:
         - RComp Mini.m
     validations:
       required: true
-  - type: textarea
+  - type: input
     id: riscosversion
     attributes:
       label: Which version of RISC OS are you using?
