@@ -45,6 +45,7 @@ Paste here the list of loaded modules. To get the list open a TaskWindow and typ
 # Platform
 
 - [ ] Acorn Archimedes 3x0/4x0 series (with ARM 3)
+- [ ] Acorn A540
 - [ ] Acorn A5000
 - [ ] Acorn A30x0 or A4000 series (with ARM250)
 - [ ] Acorn RiscPC 600 (with ARM 610)
@@ -61,7 +62,7 @@ Paste here the list of loaded modules. To get the list open a TaskWindow and typ
 - [ ] i.MX6 / Mini.M
 - [ ] PineBook / ARMBook
 - [ ] PandaBoard
-- [ ] WandaBoard or Quadro
+- [ ] Wandboard or Quadro
 - [ ] Titanium board
 - [ ] Other:
 
