@@ -2,11 +2,20 @@
 name: Notify twitter of new Pull Request
 
 on:
-  # Run on Pull requests:
-  pull_request:
+  # Paolo's note: Run on Pull requests merged to main only.
+  #               It's a weird syntax, but, because a Pull Request always
+  #               generates a "push" event when it gets merged, and given 
+  #               that we do not commit directly to main, we can use the
+  #               syntax below and it will result on creating a tweet on
+  #               our twitter ONLY when a Pull Request from Develop branch
+  #               gets merged into Main branch, which is what we want.
+  push:
     branches: [ main ]
 
-  # Run when manually triggered
+  # Paolo's note: Run when manually triggered.
+  #               Because there are situations when we may need to trigger
+  #               it manually, I just added this option. Please do not abuse
+  #               of it :)
   workflow_dispatch:
 
 env:
@@ -16,9 +25,15 @@ jobs:
   tweet:
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - name: Set ENV variables
+        env:
+          MSG_DATE: ${{ steps.date.outputs.date }}
       - uses: ethomson/send-tweet-action@v1
         with:
-          status: "🎉 New Pull Request in ${{ env.THIS_REPO }}! You can check it out here: https://github.com/${{ env.THIS_REPO }} #RISC_OS #RISCOS #ROCOnGitHub #OpenSource #DevCommunity" 
+          status: "🎉 NToday: ${{ env.MSG_DATE }}, new merge in ${{ env.THIS_REPO }}! You can check it out here: https://github.com/${{ env.THIS_REPO }} #RISC_OS #RISCOS #ROCOnGitHub #OpenSource #DevCommunity" 
           consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
