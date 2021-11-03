@@ -10,7 +10,8 @@ on:
   #               our twitter ONLY when a Pull Request from Develop branch
   #               gets merged into Main branch, which is what we want.
   push:
-    branches: [ main ]
+    branches: 
+      - main
 
   # Paolo's note: Run when manually triggered.
   #               Because there are situations when we may need to trigger
@@ -35,4 +36,3 @@ jobs:
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-
