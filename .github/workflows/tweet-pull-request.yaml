@@ -25,12 +25,9 @@ jobs:
   tweet:
     runs-on: ubuntu-latest
     steps:
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-      - name: Set ENV variables
-        env:
-          MSG_DATE: ${{ steps.date.outputs.date }}
+      - name: Set current date as env variable
+        run: echo "MSG_DATE::$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+      - name: Send tweet
       - uses: ethomson/send-tweet-action@v1
         with:
           status: "🎉 Today: ${{ env.MSG_DATE }}, new merge in ${{ env.THIS_REPO }}! You can check it out here: https://github.com/${{ env.THIS_REPO }} #RISC_OS #RISCOS #ROCOnGitHub #OpenSource #DevCommunity" 
