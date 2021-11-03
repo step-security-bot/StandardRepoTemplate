@@ -24,7 +24,6 @@ env:
 jobs:
   tweet:
     runs-on: ubuntu-latest
-    # Get the current date and then send a tweeter message
     steps:
       - name: Set current date as env variable
         run: echo "MSG_DATE::$(date +'%Y-%m-%d')" >> $GITHUB_ENV
