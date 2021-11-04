@@ -1,7 +1,10 @@
 ---
-name: Notify twitter of new Pull Request
+# Tweet notifications
+
+name: Notify twitter of new Push to main branch
 
 on:
+
   # Paolo's note: Run on Pull requests merged to main only.
   #               It's a weird syntax, but, because a Pull Request always
   #               generates a "push" event when it gets merged, and given 
@@ -23,12 +26,15 @@ env:
   THIS_REPO: ${{ github.repository }}
 
 jobs:
-  tweet:
+  init:
     runs-on: ubuntu-latest
     steps:
       - name: Set current date as env variable
         run: echo "MSG_DATE::$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-      - name: Send tweet
+      
+  tweet:
+    runs-on: ubuntu-latest
+    steps:
       - uses: ethomson/send-tweet-action@v1
         with:
           status: "🎉 Today: ${{ env.MSG_DATE }}, new merge in ${{ env.THIS_REPO }}! You can check it out here: https://github.com/${{ env.THIS_REPO }} #RISC_OS #RISCOS #ROCOnGitHub #OpenSource #DevCommunity" 
