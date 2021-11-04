@@ -47,8 +47,7 @@ jobs:
       - name: Send Tweet
         uses: ethomson/send-tweet-action@v1
         with:
-          status: "🎉 Today: ${{ env.MSG_DATE }}, new merge in ${{ env.THIS_REPO }}! You can check it out here: https://github.com/${{ env.THIS_REPO }} "
-          # #RISC_OS #RISCOS #ROCOnGitHub #OpenSource #DevCommunity" 
+          status: "🎉 Today: ${{ env.MSG_DATE }}, new merge in ${{ env.THIS_REPO }}! You can check it out here: https://github.com/${{ env.THIS_REPO }} #RISC_OS #RISCOS #ROCOnGitHub #OpenSource #DevCommunity" 
           consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
