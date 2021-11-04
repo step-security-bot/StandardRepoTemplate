@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set current date as env variable
-        run: echo "MSG_DATE::$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        run: echo "MSG_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
       
   tweet:
     runs-on: ubuntu-latest
