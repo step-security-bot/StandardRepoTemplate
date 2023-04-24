@@ -23,12 +23,15 @@
 ####################
 
 cmd="$1"
-
-curr_dir="$(pwd)"
+curr_dir="$2"
+if [ "${curr_dir}" == "" ]
+then
+    curr_dir="$(pwd)"
+fi
 
 function usage()
 {
-    echo "Usage: ux-src [gen|clean]"
+    echo "Usage: ux-src [gen|clean] [path]"
     echo "gen: generate ux-src directory"
     echo "clean: remove ux-src directory"
 }
@@ -97,7 +100,6 @@ then
     # Link Assembler files (if any):
     link_files "s" "s"
     link_files "Hdr" "s"
-
 
     # Link Forth files (if any):
     link_files "fth" "fth"
