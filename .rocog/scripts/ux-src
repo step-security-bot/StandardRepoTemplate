@@ -35,14 +35,19 @@ function usage()
 
 function link_files()
 {
-    file_dir$="$1"
-    file_ext$="$2"
-    if [ -d ${curr_dir}/src/${file_dir} ]
+    f_dir="$1"
+    f_ext="$2"
+    if [ -d ${curr_dir}/src/${f_dir} ]
     then
-        for f in ${curr_dir}/src/${file_dir}/*
+        for f in ${curr_dir}/src/${f_dir}/*
         do
-            fname="$(basename ${f})"
-            ln -s ${f} ${curr_dir}/ux-src/${fname}.${file_ext}
+            if [ ! -f ${f} ]
+            then
+                continue
+            else
+                fname="$(basename ${f})"
+                ln -s ${f} ${curr_dir}/ux-src/${fname}.${f_ext}
+            fi
         done
     fi
 }
