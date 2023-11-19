@@ -212,7 +212,6 @@ function gen_dirs()
             find_files_and_link "0" "${d}" "${curr_dir}/ux-src/${dname2}"
         else
             local dname="$(basename "${d}")"
-            echo "exploring: ${dname}"
             check_path "${dname}"
             local rval=$?
             if [ $rval -eq 1 ];
